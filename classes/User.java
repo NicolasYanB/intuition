@@ -11,10 +11,6 @@ public class User {
     this.password = password;
   }
 
-  Boolean checkPassword(String pass) {
-    return pass == this.password;
-  }
-
   void setPassword(String new_pass) {
     this.password = new_pass;
   }

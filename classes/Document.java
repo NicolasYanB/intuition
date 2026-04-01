@@ -4,21 +4,17 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.io.File;
 
 public class Document {
   private LocalDate created;
-  private LocalDate last_updated;
   private String text;
   private String filename;
+  private String path;
 
-  private static String path = "files";
-
-  private Document() {};
-
-  static Document open(String filename) {
-    Document opened = new Document();
-    String filepath = path + "/" + filename;
-    return opened;
+  public Document(String filename, String path) {
+    this.filename = filename;
+    this.path = path;
   }
 
   String getCreated() {
@@ -29,6 +25,18 @@ public class Document {
     BufferedWriter writer = new BufferedWriter(new FileWriter(this.filename, false));
     writer.write(text, 0, 0); 
     writer.close();
-    this.last_updated = LocalDate.now();
+  }
+
+  void delete() {
+    File f = new File(path + "/" + filename);
+    f.delete();
+  }
+
+  String getFilename() {
+    return this.filename;
+  }
+
+  String getText() {
+    return this.text;
   }
 }
