@@ -21,7 +21,7 @@ public class Editor {
     this.opened = null;
   }
 
-  void list() {
-    HashMap
-  }
+  // void list() {
+  //   HashMap
+  // }
 }
